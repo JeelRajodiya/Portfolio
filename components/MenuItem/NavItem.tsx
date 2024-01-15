@@ -30,7 +30,7 @@ export default function NavItem({
 
 			navIndicatorRef.current!.style.width = `${offsetWidth}px`;
 		}
-	}, [isActive]);
+	}, [isActive, navIndicatorRef]);
 	return (
 		<div
 			ref={ref}

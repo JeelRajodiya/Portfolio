@@ -1,0 +1,25 @@
+.cursor {
+	/* background-color: hsl(var(--text)); */
+
+	animation: blink 1s infinite;
+	margin-left: 2px;
+	height: 1em;
+	width: 0.5em;
+}
+
+@keyframes blink {
+	0% {
+		opacity: 0;
+	}
+	50% {
+		opacity: 1;
+	}
+	100% {
+		opacity: 0;
+	}
+}
+.TypeWriter {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+}
