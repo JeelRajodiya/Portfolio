@@ -1,0 +1,26 @@
+.projectCard {
+	background-color: hsl(var(--background2));
+	border-radius: 32px;
+	padding: 40px;
+}
+.projectCardHeader {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+}
+.projectCardLinks {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	gap: 16px;
+}
+.projectCardTitle {
+	font-size: x-large;
+	height: min-content;
+	font-weight: bold;
+}
+
+.projectCardDates {
+	font-size: small;
+	opacity: 0.6;
+}

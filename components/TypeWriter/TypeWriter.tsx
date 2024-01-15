@@ -42,14 +42,18 @@ export default function TypeWriter({
 		return () => {
 			clearTimeout(timeout);
 		};
-	}, [text, isDeleting, letterIndex, wordIndex]);
+	}, [text, isDeleting, letterIndex, wordIndex, words, speed]);
 	useEffect(() => {
 		if (isDeleting) {
 			setSpeed(50);
 		} else {
-			setSpeed(Math.random() * (400 - 50) + 50);
+			if (letterIndex === words[wordIndex].length - 1) {
+				setSpeed(2000);
+			} else {
+				setSpeed(Math.random() * (400 - 50) + 50);
+			}
 		}
-	}, [letterIndex, isDeleting]);
+	}, [letterIndex, isDeleting, wordIndex, words]);
 
 	return (
 		<main className={styles.TypeWriter} style={style}>
@@ -58,7 +62,6 @@ export default function TypeWriter({
 				className={styles.cursor}
 				style={{
 					backgroundColor: style.color,
-					animationDuration: `${speed * 10}ms`,
 				}}
 			></div>
 		</main>

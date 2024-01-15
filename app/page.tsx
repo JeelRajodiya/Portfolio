@@ -4,6 +4,7 @@ import MenuItem from "@/components/MenuItem/NavItem";
 import NavBar from "@/components/NavBar/NavBar";
 import { Box, Flex, Heading } from "@chakra-ui/react";
 import TypeWriter from "@/components/TypeWriter";
+import ProjectCard from "@/components/ProjectCard/ProjectCard";
 
 export default function Home() {
 	return (
@@ -23,8 +24,10 @@ export default function Home() {
 							style={{
 								color: "hsl(var(--primary))",
 								fontWeight: "bold",
+								textDecoration: "underline",
+								textDecorationThickness: "4px",
 							}}
-							words={["Full Stack", "Hobby"]}
+							words={["Full Stack ", "Hobby ", "Next.js "]}
 						/>{" "}
 						Developer
 					</Flex>
@@ -52,6 +55,20 @@ export default function Home() {
 					</Box>
 					<Box>2022 - 2026</Box>
 				</Box>
+			</Flex>
+			<Flex direction={"column"} gap={"4px"}>
+				<Heading>Projects</Heading>
+				<ProjectCard
+					title="Enchanted Oasis"
+					brief="A simple school management system"
+					startDate="July 2021"
+					endDate="August 2021"
+					tags={["React", "Node.js", "MongoDB"]}
+					GHLink="link"
+					demoLink="link"
+				>
+					Hi
+				</ProjectCard>
 			</Flex>
 		</main>
 	);
