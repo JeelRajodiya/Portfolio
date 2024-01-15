@@ -8,7 +8,9 @@
 }
 
 .navIndicator {
-	background-color: red;
+	background-color: hsl(var(--text));
+	border-radius: 48px;
 	position: absolute;
-	width: 8px;
+	width: 1px;
+	transition: left 0.1s ease-in-out;
 }

@@ -15,11 +15,14 @@ export default function NavItem({
 }) {
 	const ref = useRef<HTMLDivElement>(null);
 	useEffect(() => {
-		// if (isActive && ref && navIndicatorRef) {
-		// 	const { offsetLeft, offsetWidth } = ref.current!;
-		// 	navIndicatorRef.current!.style.left = `${offsetLeft}px`;
-		// 	navIndicatorRef.current!.style.width = `${offsetWidth}px`;
-		// }
+		if (isActive && ref && navIndicatorRef) {
+			const { offsetLeft, offsetWidth } = ref.current!;
+			navIndicatorRef.current!.style.height = `${
+				ref.current!.offsetHeight
+			}px`;
+			navIndicatorRef.current!.style.left = `${offsetLeft}px`;
+			navIndicatorRef.current!.style.width = `${offsetWidth}px`;
+		}
 	}, [isActive]);
 	return (
 		<div

@@ -1,11 +1,14 @@
 .menuItem {
-	background-color: hsl(var(--background));
+	background-color: transparent;
 	padding: 8px 16px;
 	border-radius: 32px;
 	width: min-content;
 	height: min-content;
+	z-index: 3;
+	cursor: pointer;
 }
+
 .menuItem.active {
-	background-color: hsl(var(--text));
 	color: hsl(var(--background));
+	transition: color 0.1s ease-in-out;
 }

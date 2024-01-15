@@ -13,20 +13,20 @@ export default function NavBar() {
 	const [activeItem, setActiveItem] = useState(navItems[0]);
 	const navIndicatorRef = useRef<HTMLDivElement>(null);
 	const navBarRef = useRef<HTMLDivElement>(null);
-	useEffect(() => {
-		if (
-			navBarRef &&
-			navIndicatorRef &&
-			navBarRef.current &&
-			navIndicatorRef.current
-		) {
-			console.log(
-				navBarRef.current.offsetHeight,
-				navIndicatorRef.current.offsetHeight
-			);
-			navIndicatorRef.current.style.height = `${navBarRef.current.offsetHeight}px`;
-		}
-	}, [navBarRef, navIndicatorRef]);
+	// useEffect(() => {
+	// 	if (
+	// 		navBarRef &&
+	// 		navIndicatorRef &&
+	// 		navBarRef.current &&
+	// 		navIndicatorRef.current
+	// 	) {
+	// 		console.log(
+	// 			navBarRef.current.offsetHeight,
+	// 			navIndicatorRef.current.offsetHeight
+	// 		);
+	// 		navIndicatorRef.current.style.height = `${navBarRef.current.offsetHeight}px`;
+	// 	}
+	// }, [navBarRef, navIndicatorRef]);
 	return (
 		<div className={styles.navBar} ref={navBarRef}>
 			{navItems.map((item) => (
