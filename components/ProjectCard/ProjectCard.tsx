@@ -1,6 +1,14 @@
+"use client";
+
 import LinkIcon from "@/styles/icons/LinkIcon";
 import styles from "./ProjectCard.module.css";
 import GHIcon from "@/styles/icons/GHIcon";
+import { useState } from "react";
+import { Box } from "@chakra-ui/react";
+
+function Badge({ text }: { text: string }) {
+	return <div className={styles.badge}>{text}</div>;
+}
 export default function ProjectCard({
 	title,
 	startDate,
@@ -20,11 +28,16 @@ export default function ProjectCard({
 	demoLink: string;
 	children: React.ReactNode;
 }) {
+	const [isHovered, setIsHovered] = useState(false);
 	return (
-		<div className={styles.projectCard}>
+		<div
+			className={styles.projectCard}
+			onMouseEnter={() => setIsHovered(true)}
+			onMouseLeave={() => setIsHovered(false)}
+		>
 			<div className={styles.projectCardHeader}>
 				<div>
-					<div className={styles.projectCardTitle}>{title}d</div>
+					<div className={styles.projectCardTitle}>{title}</div>
 					<div className={styles.projectCardDates}>
 						{startDate} - {endDate}
 					</div>
@@ -40,27 +53,16 @@ export default function ProjectCard({
 			</div>
 
 			<div className={styles.projectCardBrief}>{brief}</div>
-			<div className={styles.projectCardLinks}>
-				{GHLink && (
-					<a
-						href={GHLink}
-						target="_blank"
-						className={styles.projectCardLink}
-					>
-						GitHub
-					</a>
-				)}
-				{demoLink && (
-					<a
-						href={demoLink}
-						target="_blank"
-						className={styles.projectCardLink}
-					>
-						Demo
-					</a>
-				)}
+
+			{children}
+
+			<div className={styles.projectCardTags}>
+				{tags.map((tag) => (
+					<Badge text={tag} key={tag} />
+				))}
 			</div>
-			<div className={styles.projectCardChildren}>{children}</div>
+
+			{/* <div className={styles.projectCardChildren}>{children}</div> */}
 		</div>
 	);
 }

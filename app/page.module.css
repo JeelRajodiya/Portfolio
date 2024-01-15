@@ -1,7 +1,18 @@
 .main {
 	width: 100%;
-	max-width: 15cm;
+	max-width: 20cm;
 	display: flex;
 	flex-direction: column;
 	gap: 4em;
+}
+.projectCardsGrid {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 2em;
+}
+
+@media (max-width: 768px) {
+	.projectCardsGrid {
+		grid-template-columns: 1fr;
+	}
 }

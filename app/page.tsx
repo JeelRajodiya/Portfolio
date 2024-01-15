@@ -1,11 +1,10 @@
 import Image from "next/image";
 import styles from "./page.module.css";
-import MenuItem from "@/components/MenuItem/NavItem";
-import NavBar from "@/components/NavBar/NavBar";
+
 import { Box, Flex, Heading } from "@chakra-ui/react";
 import TypeWriter from "@/components/TypeWriter";
 import ProjectCard from "@/components/ProjectCard/ProjectCard";
-
+import { Text } from "@chakra-ui/react";
 export default function Home() {
 	return (
 		<main className={styles.main}>
@@ -56,19 +55,69 @@ export default function Home() {
 					<Box>2022 - 2026</Box>
 				</Box>
 			</Flex>
-			<Flex direction={"column"} gap={"4px"}>
+			<Flex direction={"column"} gap={"16px"}>
 				<Heading>Projects</Heading>
-				<ProjectCard
-					title="Enchanted Oasis"
-					brief="A simple school management system"
-					startDate="July 2021"
-					endDate="August 2021"
-					tags={["React", "Node.js", "MongoDB"]}
-					GHLink="link"
-					demoLink="link"
-				>
-					Hi
-				</ProjectCard>
+				<div className={styles.projectCardsGrid}>
+					<ProjectCard
+						title="Enchanted Oasis"
+						brief="Harry potter themed school management system"
+						startDate="July 2023"
+						endDate="August 2023"
+						tags={["Next.js", "TypeScript", "MongoDB"]}
+						GHLink="https://github.com/Triellis/Enchanted-Oasis"
+						demoLink="https://enchanted-oasis.vercel.app/"
+					>
+						<div>
+							<Text
+								color="hsl(var(--primary))"
+								fontWeight={"bold"}
+							>
+								Features
+							</Text>
+
+							<ul
+								style={{
+									opacity: 0.7,
+								}}
+							>
+								<li>
+									Role-based Authorization for Admin, Faculty,
+									Student
+								</li>
+								<li>Announcement from admin and faculty.</li>
+								<li>Course registration</li>
+								<li>Course material sharing</li>
+							</ul>
+						</div>
+					</ProjectCard>
+					<ProjectCard
+						title="Clash Of Codes"
+						brief="A Live Leaderboard build on top of Coforces API"
+						startDate="December 2023"
+						endDate="January 2024"
+						tags={["React", "Node.js", "MongoDB"]}
+						GHLink="https://github.com/Triellis/clash-of-codes"
+						demoLink="https://clash-of-codes-five.vercel.app/"
+					>
+						<div>
+							<Text
+								color="hsl(var(--secondary))"
+								fontWeight={"bold"}
+							>
+								Background
+							</Text>
+							<Text opacity={0.7} fontWeight={"lighter"}>
+								This project enhances the Codeforces contest
+								experience by fetching{" "}
+								<u>real-time standings</u> and organizing
+								participants into clans. Leveraging Websockets
+								and Redis Pub/Sub, it delivers streamlined stats
+								to the end user, addressing Codeforces' UI
+								limitations.
+							</Text>
+						</div>
+					</ProjectCard>
+				</div>
 			</Flex>
 		</main>
 	);
