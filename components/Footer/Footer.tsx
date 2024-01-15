@@ -78,16 +78,19 @@ export default function Footer() {
 					</a>
 				</Flex>
 				<Flex direction={"column"} gap={4}>
-					<Text fontSize={"large"}>Say Something to Me {emoji}</Text>
+					<Text fontSize={"x-large"}>
+						Say Something to Me {emoji}
+					</Text>
 					<Flex gap={2}>
 						<Input
 							variant={"default"}
 							placeholder="Nice website "
 							value={feedback}
-							fontSize={"small"}
+							size={"md"}
 							onChange={(e) => setFeedback(e.target.value)}
 						/>
 						<Button
+							size={"md"}
 							variant={"default"}
 							isLoading={isSending}
 							onClick={() =>
