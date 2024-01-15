@@ -1,0 +1,17 @@
+.footer {
+	background-color: hsl(var(--background2));
+	width: 100%;
+	margin-top: auto;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 32px 16px;
+}
+.footerWrapper {
+	max-width: 20cm;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+
+	width: 100%;
+}

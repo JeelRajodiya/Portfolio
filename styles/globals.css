@@ -26,12 +26,20 @@
 	--secondary: 229 28% 43%;
 }
 
-body {
+.container {
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	flex-direction: column;
 	padding-top: 16px;
 	gap: 16px;
-	padding: 1em;
+	padding: 0 1em;
+	margin: 2em 0;
+}
+
+body {
+	display: flex;
+
+	align-items: center;
+	flex-direction: column;
 }

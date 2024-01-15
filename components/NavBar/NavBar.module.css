@@ -4,7 +4,10 @@
 	border: 2px solid hsl(var(--text) / 50%);
 	border-radius: 48px;
 	width: min-content;
-	position: relative;
+	position: sticky;
+	top: 8px;
+	backdrop-filter: blur(8px);
+	z-index: 3;
 }
 
 .navIndicator {
