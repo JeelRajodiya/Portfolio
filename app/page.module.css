@@ -1,4 +1,7 @@
 .main {
 	width: 100%;
 	max-width: 15cm;
+	display: flex;
+	flex-direction: column;
+	gap: 4em;
 }

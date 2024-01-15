@@ -14,15 +14,20 @@ export default function NavItem({
 	setActive: (name: string) => void;
 }) {
 	const ref = useRef<HTMLDivElement>(null);
+	const offsetMiss = 8;
 	useEffect(() => {
 		if (isActive && ref && navIndicatorRef) {
 			const { offsetLeft, offsetWidth } = ref.current!;
 			navIndicatorRef.current!.style.height = `${
 				ref.current!.offsetHeight
 			}px`;
-			navIndicatorRef.current!.style.left = `${offsetLeft + 8}px`;
+			navIndicatorRef.current!.style.left = `${
+				offsetLeft + offsetMiss
+			}px`;
 			setTimeout(() => {
-				navIndicatorRef.current!.style.left = `${offsetLeft - 8}px`;
+				navIndicatorRef.current!.style.left = `${
+					offsetLeft - offsetMiss
+				}px`;
 			}, 100);
 			setTimeout(() => {
 				navIndicatorRef.current!.style.left = `${offsetLeft}px`;

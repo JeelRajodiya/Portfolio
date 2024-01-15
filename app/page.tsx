@@ -8,27 +8,51 @@ import TypeWriter from "@/components/TypeWriter";
 export default function Home() {
 	return (
 		<main className={styles.main}>
-			<div className={styles.intro}>
+			<Flex className={styles.intro} flexDirection={"column"} gap={"4px"}>
 				<Heading>Hi, I&apos;m Zeel.</Heading>
-				<Flex
-					direction={"row"}
-					fontSize={"1.5em"}
-					style={{ color: "hsl(var(--primary))", fontWeight: "bold" }}
-				>
-					<TypeWriter
+				<Box>
+					<Flex
+						direction={"row"}
+						fontSize={"1.5em"}
 						style={{
 							color: "hsl(var(--primary))",
 							fontWeight: "bold",
 						}}
-						words={["Full Stack", "Hobby"]}
-					/>{" "}
-					Developer
-				</Flex>
-				<Box opacity={0.7}>
-					I began coding in year 2020, and it has evolved into a
-					passionate hobby for me.
+					>
+						<TypeWriter
+							style={{
+								color: "hsl(var(--primary))",
+								fontWeight: "bold",
+							}}
+							words={["Full Stack", "Hobby"]}
+						/>{" "}
+						Developer
+					</Flex>
+					<Box opacity={0.7}>
+						I began coding in year 2020, and it has evolved into a
+						passionate hobby for me.
+					</Box>
 				</Box>
-			</div>
+			</Flex>
+			<Flex direction={"column"} gap={"4px"}>
+				<Heading>Education</Heading>
+				<Box>
+					<Box fontSize={"large"}>
+						Ahmedabad University
+						<span
+							style={{
+								opacity: 0.6,
+							}}
+						>
+							&nbsp;,Gujarat,India.
+						</span>
+					</Box>
+					<Box fontSize={"large"}>
+						B.Tech in Computer Science and Engineering
+					</Box>
+					<Box>2022 - 2026</Box>
+				</Box>
+			</Flex>
 		</main>
 	);
 }
