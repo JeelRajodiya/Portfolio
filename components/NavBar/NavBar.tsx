@@ -9,20 +9,34 @@ const NavIndicator = forwardRef(function NavIndicator(props: any, ref: any) {
 });
 
 export default function NavBar() {
-	const navItems = ["About", "Projects", "Contact"];
-	const [activeItem, setActiveItem] = useState(navItems[0]);
+	const navItemsMap = [
+		{
+			name: "About",
+			link: "",
+		},
+		{
+			name: "Projects",
+			link: "#Projects",
+		},
+		{
+			name: "Contact",
+			link: "#Contact",
+		},
+	];
+	const [activeItem, setActiveItem] = useState(navItemsMap[0].name);
 	const navIndicatorRef = useRef<HTMLDivElement>(null);
 	const navBarRef = useRef<HTMLDivElement>(null);
 
 	return (
 		<div className={styles.navBar} ref={navBarRef}>
-			{navItems.map((item) => (
+			{navItemsMap.map((item) => (
 				<NavItem
+					link={item.link}
 					navIndicatorRef={navIndicatorRef}
 					setActive={setActiveItem}
-					key={item}
-					name={item}
-					isActive={item === activeItem}
+					key={item.name}
+					name={item.name}
+					isActive={item.name === activeItem}
 				/>
 			))}
 			<NavIndicator ref={navIndicatorRef} />

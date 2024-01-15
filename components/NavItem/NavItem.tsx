@@ -5,11 +5,13 @@ import { useRouter } from "next/navigation";
 
 export default function NavItem({
 	name,
+	link,
 	navIndicatorRef,
 	isActive,
 	setActive,
 }: {
 	name: string;
+	link: string;
 	navIndicatorRef: any;
 	isActive: boolean;
 	setActive: (name: string) => void;
@@ -40,9 +42,9 @@ export default function NavItem({
 	const router = useRouter();
 	useEffect(() => {
 		if (isActive) {
-			router.push(`#${name}`);
+			router.push(`${link}`);
 		}
-	}, [isActive, name, router]);
+	}, [isActive, link, router]);
 	return (
 		<div
 			ref={ref}

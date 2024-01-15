@@ -9,7 +9,7 @@ export default function Home() {
 	return (
 		<main className={styles.main}>
 			<Flex className={styles.intro} flexDirection={"column"} gap={"4px"}>
-				<Heading id="About">Hi, I&apos;m Zeel.</Heading>
+				<Heading>Hi, I&apos;m Zeel.</Heading>
 				<Box>
 					<Flex
 						direction={"row"}
