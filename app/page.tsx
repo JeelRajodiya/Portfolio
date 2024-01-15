@@ -92,7 +92,7 @@ export default function Home() {
 					</ProjectCard>
 					<ProjectCard
 						title="Clash Of Codes"
-						brief="A Live Leaderboard build on top of Coforces API"
+						brief="A Live Leaderboard build on top of Codeforces API"
 						startDate="December 2023"
 						endDate="January 2024"
 						tags={["React", "Node.js", "MongoDB"]}
