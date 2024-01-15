@@ -1,1 +1,1 @@
-export { default as default } from "./MenuItem";
+export { default as default } from "./NavItem";

@@ -1,0 +1,11 @@
+.menuItem {
+	background-color: hsl(var(--background));
+	padding: 8px 16px;
+	border-radius: 32px;
+	width: min-content;
+	height: min-content;
+}
+.menuItem.active {
+	background-color: hsl(var(--text));
+	color: hsl(var(--background));
+}

@@ -1,0 +1,14 @@
+.navBar {
+	display: flex;
+	padding: 8px;
+	border: 2px solid hsl(var(--text) / 50%);
+	border-radius: 48px;
+	width: min-content;
+	position: relative;
+}
+
+.navIndicator {
+	background-color: red;
+	position: absolute;
+	width: 8px;
+}
