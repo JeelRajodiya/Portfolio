@@ -55,7 +55,7 @@ export default function Footer() {
 		const interval = setInterval(() => {
 			setEmoji(listOfEmojis[emojiIndex]);
 			setEmojiIndex((emojiIndex + 1) % listOfEmojis.length);
-		}, 100);
+		}, 200);
 		return () => clearInterval(interval);
 	}, [emojiIndex]);
 
