@@ -67,7 +67,7 @@ export default function Footer() {
 					</a>
 				</Flex>
 				<Flex direction={"column"} gap={4}>
-					<Text fontSize={"1.5em"}>Say Something to Me</Text>
+					<Text fontSize={"large"}>Say Something to Me</Text>
 					<Flex gap={2}>
 						<Input
 							variant={"default"}
