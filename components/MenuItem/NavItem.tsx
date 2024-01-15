@@ -20,7 +20,14 @@ export default function NavItem({
 			navIndicatorRef.current!.style.height = `${
 				ref.current!.offsetHeight
 			}px`;
-			navIndicatorRef.current!.style.left = `${offsetLeft}px`;
+			navIndicatorRef.current!.style.left = `${offsetLeft + 8}px`;
+			setTimeout(() => {
+				navIndicatorRef.current!.style.left = `${offsetLeft - 8}px`;
+			}, 100);
+			setTimeout(() => {
+				navIndicatorRef.current!.style.left = `${offsetLeft}px`;
+			}, 200);
+
 			navIndicatorRef.current!.style.width = `${offsetWidth}px`;
 		}
 	}, [isActive]);
