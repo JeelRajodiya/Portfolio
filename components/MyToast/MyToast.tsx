@@ -58,7 +58,7 @@ export default function myToast(
 					status={status}
 				/>
 			),
-			duration: 100000,
+			duration: 3000,
 			isClosable: true,
 		});
 	} else {
