@@ -1,6 +1,7 @@
 import { useEffect, useRef } from "react";
 import styles from "./NavItem.module.css";
 import classNames from "classnames";
+import { useRouter } from "next/navigation";
 
 export default function NavItem({
 	name,
@@ -36,11 +37,17 @@ export default function NavItem({
 			navIndicatorRef.current!.style.width = `${offsetWidth}px`;
 		}
 	}, [isActive, navIndicatorRef]);
+	const router = useRouter();
+	useEffect(() => {
+		if (isActive) {
+			router.push(`#${name}`);
+		}
+	}, [isActive, name, router]);
 	return (
 		<div
 			ref={ref}
 			className={classNames(
-				styles.menuItem,
+				styles.navItem,
 				isActive ? styles.active : ""
 			)}
 			onClick={() => setActive(name)}

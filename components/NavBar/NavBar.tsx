@@ -1,7 +1,7 @@
 "use client";
 import { MenuItem } from "@chakra-ui/react";
 import styles from "./NavBar.module.css";
-import NavItem from "../MenuItem/NavItem";
+import NavItem from "../NavItem/NavItem";
 import { forwardRef, useEffect, useRef, useState } from "react";
 
 const NavIndicator = forwardRef(function NavIndicator(props: any, ref: any) {

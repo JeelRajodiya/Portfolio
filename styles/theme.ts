@@ -22,7 +22,7 @@ const Button = {
 			borderRadius: "full",
 			px: "6",
 			py: "4",
-			fontSize: "md",
+			fontSize: "sm",
 			color: "hsl(var(--text) / 0.8)",
 			fontWeight: "normal",
 			background: "hsl(var(--primary) )",

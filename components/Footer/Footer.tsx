@@ -6,20 +6,30 @@ import { Text } from "@chakra-ui/react";
 
 export default function Footer() {
 	return (
-		<div className={styles.footer}>
+		<div className={styles.footer} id="Contact">
 			<div className={styles.footerWrapper}>
 				<Flex direction={"column"} gap={8}>
-					<Flex gap={4}>
-						<LinkedIn /> LinkedIn
-					</Flex>
-					<Flex gap={4}>
-						<GHIcon /> GitHub
-					</Flex>
+					<a
+						href="https://www.linkedin.com/in/zeel-rajodiya"
+						target="_blank"
+					>
+						<Flex gap={4}>
+							<LinkedIn /> LinkedIn
+						</Flex>
+					</a>
+					<a href="https://github.com/JeelRajodiya" target="_blank">
+						<Flex gap={4}>
+							<GHIcon /> GitHub
+						</Flex>
+					</a>
 				</Flex>
 				<Flex direction={"column"} gap={4}>
 					<Text fontSize={"1.5em"}>Say Something to Me</Text>
 					<Flex gap={2}>
-						<Input variant={"default"} placeholder="Nice website" />
+						<Input
+							variant={"default"}
+							placeholder="Nice website ❤️"
+						/>
 						<Button variant={"default"}>Send</Button>
 					</Flex>
 				</Flex>
