@@ -112,7 +112,7 @@ export default function Home() {
 								<u>real-time standings</u> and organizing
 								participants into clans. Leveraging Websockets
 								and Redis Pub/Sub, it delivers streamlined stats
-								to the end user, addressing Codeforces' UI
+								to the end user, addressing Codeforces&apos; UI
 								limitations.
 							</Text>
 						</div>
