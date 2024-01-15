@@ -1,12 +1,13 @@
 "use client";
 
-import { Button, Flex, Input, useToast } from "@chakra-ui/react";
+import { Box, Button, Flex, Input, useToast } from "@chakra-ui/react";
 import styles from "./Footer.module.css";
 import LinkedIn from "@/styles/icons/LinkedIn";
 import GHIcon from "@/styles/icons/GHIcon";
 import { Text } from "@chakra-ui/react";
-import { useState } from "react";
-import { myToast } from "@/util/functions";
+import { useEffect, useMemo, useState } from "react";
+import MyToast from "../MyToast/MyToast";
+import { listOfEmojis } from "@/util/constants";
 
 async function sendFeedback(
 	feedback: string,
@@ -26,7 +27,7 @@ async function sendFeedback(
 	setIsSending(false);
 
 	if (res.ok) {
-		myToast(
+		MyToast(
 			"Feedback sent",
 			"Thank you for your feedback. I will get back to you soon.",
 			"success",
@@ -34,7 +35,7 @@ async function sendFeedback(
 		);
 		setFeedback("");
 	} else {
-		myToast(
+		MyToast(
 			"Feedback not sent",
 			"Something went wrong. Please try again later.",
 			"error",
@@ -47,36 +48,66 @@ export default function Footer() {
 	const [feedback, setFeedback] = useState("");
 	const [isSending, setIsSending] = useState(false);
 	const toast = useToast();
+	const [emoji, setEmoji] = useState("😀");
+
+	const [emojiIndex, setEmojiIndex] = useState(0);
+	useEffect(() => {
+		const interval = setInterval(() => {
+			setEmoji(listOfEmojis[emojiIndex]);
+			setEmojiIndex((emojiIndex + 1) % listOfEmojis.length);
+		}, 100);
+		return () => clearInterval(interval);
+	}, [emojiIndex]);
 
 	return (
 		<div className={styles.footer} id="Contact">
-			<div className={styles.footerWrapper}>
+			<Box className={styles.footerWrapper} fontSize={"small"}>
 				<Flex direction={"column"} gap={8}>
 					<a
 						href="https://www.linkedin.com/in/zeel-rajodiya"
 						target="_blank"
 					>
-						<Flex gap={4}>
+						<Flex gap={4} alignItems={"center"}>
 							<LinkedIn /> LinkedIn
 						</Flex>
 					</a>
 					<a href="https://github.com/JeelRajodiya" target="_blank">
-						<Flex gap={4}>
+						<Flex gap={4} alignItems={"center"}>
 							<GHIcon /> GitHub
 						</Flex>
 					</a>
 				</Flex>
 				<Flex direction={"column"} gap={4}>
-					<Text fontSize={"large"}>Say Something to Me</Text>
+					<Text
+						fontSize={{
+							base: "md",
+							md: "2em",
+						}}
+					>
+						Say Something to Me {emoji}
+					</Text>
 					<Flex gap={2}>
 						<Input
 							variant={"default"}
-							placeholder="Nice website ❤️"
+							placeholder="Nice website "
 							value={feedback}
+							fontSize={"small"}
+							size={{
+								base: "sm",
+								md: "md",
+							}}
 							onChange={(e) => setFeedback(e.target.value)}
 						/>
 						<Button
 							variant={"default"}
+							size={{
+								base: "sm",
+								md: "md",
+							}}
+							fontSize={{
+								base: "xs",
+								md: "md",
+							}}
 							isLoading={isSending}
 							onClick={() =>
 								sendFeedback(
@@ -92,7 +123,7 @@ export default function Footer() {
 						</Button>
 					</Flex>
 				</Flex>
-			</div>
+			</Box>
 		</div>
 	);
 }

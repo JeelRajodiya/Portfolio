@@ -1,0 +1,13 @@
+.toast {
+	padding: 1em;
+	border-radius: 16px;
+	max-width: 48ch;
+}
+
+.toastTitle {
+	font-size: 1.5rem;
+	font-weight: bold;
+}
+.successToast {
+	background-color: hsl(var(--primary));
+}
