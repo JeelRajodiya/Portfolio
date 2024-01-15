@@ -15,6 +15,21 @@ const Input = {
 		},
 	},
 };
+
+const Button = {
+	variants: {
+		default: {
+			borderRadius: "full",
+			px: "6",
+			py: "4",
+			fontSize: "md",
+			color: "hsl(var(--text) / 0.8)",
+			fontWeight: "normal",
+			background: "hsl(var(--primary) )",
+			textTransform: "uppercase",
+		},
+	},
+};
 const theme = extendTheme({
 	styles: {
 		global: {
@@ -30,6 +45,7 @@ const theme = extendTheme({
 	},
 	components: {
 		Input,
+		Button,
 	},
 });
 export default theme;

@@ -1,7 +1,8 @@
-import { Flex, Input } from "@chakra-ui/react";
+import { Button, Flex, Input } from "@chakra-ui/react";
 import styles from "./Footer.module.css";
 import LinkedIn from "@/styles/icons/LinkedIn";
 import GHIcon from "@/styles/icons/GHIcon";
+import { Text } from "@chakra-ui/react";
 
 export default function Footer() {
 	return (
@@ -15,8 +16,12 @@ export default function Footer() {
 						<GHIcon /> GitHub
 					</Flex>
 				</Flex>
-				<Flex>
-					<Input variant={"default"} placeholder="Nice website" />
+				<Flex direction={"column"} gap={4}>
+					<Text fontSize={"1.5em"}>Say Something to Me</Text>
+					<Flex gap={2}>
+						<Input variant={"default"} placeholder="Nice website" />
+						<Button variant={"default"}>Send</Button>
+					</Flex>
 				</Flex>
 			</div>
 		</div>
