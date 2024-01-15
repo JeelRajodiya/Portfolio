@@ -1,0 +1,20 @@
+@font-face {
+	font-family: "GoogleSans-Medium"; /* Choose a name for your font */
+	src: url("./fonts/GoogleSans-Medium.ttf") format("truetype");
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: "GoogleSans-Bold"; /* Choose a name for your font */
+	src: url("./fonts/GoogleSans-Bold.ttf") format("truetype");
+	font-weight: bold;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: "GoogleSans-Regular"; /* Choose a name for your font */
+	src: url("./fonts/GoogleSans-Regular.ttf") format("truetype");
+	font-weight: lighter;
+	font-style: normal;
+}
