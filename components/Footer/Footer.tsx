@@ -61,7 +61,7 @@ export default function Footer() {
 
 	return (
 		<div className={styles.footer} id="Contact">
-			<Box className={styles.footerWrapper} fontSize={"small"}>
+			<Box className={styles.footerWrapper}>
 				<Flex direction={"column"} gap={8}>
 					<a
 						href="https://www.linkedin.com/in/zeel-rajodiya"
@@ -78,36 +78,17 @@ export default function Footer() {
 					</a>
 				</Flex>
 				<Flex direction={"column"} gap={4}>
-					<Text
-						fontSize={{
-							base: "md",
-							md: "2em",
-						}}
-					>
-						Say Something to Me {emoji}
-					</Text>
+					<Text fontSize={"large"}>Say Something to Me {emoji}</Text>
 					<Flex gap={2}>
 						<Input
 							variant={"default"}
 							placeholder="Nice website "
 							value={feedback}
 							fontSize={"small"}
-							size={{
-								base: "sm",
-								md: "md",
-							}}
 							onChange={(e) => setFeedback(e.target.value)}
 						/>
 						<Button
 							variant={"default"}
-							size={{
-								base: "sm",
-								md: "md",
-							}}
-							fontSize={{
-								base: "xs",
-								md: "md",
-							}}
 							isLoading={isSending}
 							onClick={() =>
 								sendFeedback(
