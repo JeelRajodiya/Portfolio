@@ -17,4 +17,7 @@
 	.projectCardsGrid {
 		grid-template-columns: 1fr;
 	}
+	.projectCardsGrid > :nth-child(3) {
+		grid-column: 1 / 2;
+	}
 }
