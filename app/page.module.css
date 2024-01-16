@@ -10,7 +10,9 @@
 	grid-template-columns: 1fr 1fr;
 	gap: 2em;
 }
-
+.projectCardsGrid > :nth-child(3) {
+	grid-column: 1 / 3;
+}
 @media (max-width: 768px) {
 	.projectCardsGrid {
 		grid-template-columns: 1fr;
