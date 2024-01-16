@@ -55,6 +55,25 @@ export default function Home() {
 					<Box>2022 - 2026</Box>
 				</Box>
 			</Flex>
+			<Flex direction={"column"} gap={"4px"}>
+				<Heading>Skills</Heading>
+				<Box>
+					<Box fontSize={"x-large"}>Languages</Box>
+					<Box opacity={0.7}>TypeScript, JavaScript, Python, Go</Box>
+				</Box>
+				<Box>
+					<Box fontSize={"x-large"}>Frameworks</Box>
+					<Box opacity={0.7}>
+						React, Next.js, Express.js, Flask, Django, Gin
+					</Box>
+				</Box>
+				<Box>
+					<Box fontSize={"x-large"}>Tools & Databases </Box>
+					<Box opacity={0.7}>
+						Figma, Git, MongoDB, Redis, PostgreSQL{" "}
+					</Box>
+				</Box>
+			</Flex>
 			<Flex direction={"column"} gap={"16px"}>
 				<Heading id="Projects">Projects</Heading>
 				<div className={styles.projectCardsGrid}>
