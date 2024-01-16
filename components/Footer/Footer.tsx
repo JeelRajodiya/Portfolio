@@ -84,7 +84,7 @@ export default function Footer() {
 					<Flex gap={2}>
 						<Input
 							variant={"default"}
-							placeholder="Nice website "
+							placeholder="Hey"
 							value={feedback}
 							size={"md"}
 							onChange={(e) => setFeedback(e.target.value)}
