@@ -57,26 +57,7 @@ export default function Home() {
 					<Box>2022 - 2026</Box>
 				</Box>
 			</Flex>
-			<Flex direction={"column"} gap={"4px"}>
-				<Heading>Skills</Heading>
-				<Box>
-					<Flex>
-						<HighlightText highlightColor={"#4372ba"}>
-							TypeScript
-						</HighlightText>
-						,&nbsp;
-						<HighlightText highlightColor={"#5fcef3"}>
-							React
-						</HighlightText>
-						&nbsp; Next.js,&nbsp;
-						<Text color={"#65a24d"}>MongoDB,</Text>&nbsp;
-					</Flex>
-					<Box fontSize={"large"}>
-						B.Tech in Computer Science and Engineering T
-					</Box>
-					<Box>2022 - 2026</Box>
-				</Box>
-			</Flex>
+
 			<Flex direction={"column"} gap={"16px"}>
 				<Heading id="Projects">Projects</Heading>
 				<div className={styles.projectCardsGrid}>
