@@ -8,7 +8,7 @@
 	padding: 32px 16px;
 }
 .footerWrapper {
-	max-width: 20cm;
+	max-width: 25cm;
 	display: flex;
 	flex-direction: row;
 	justify-content: space-between;

@@ -111,10 +111,10 @@ export default function Home() {
 					</ProjectCard>
 					<ProjectCard
 						title="Clash Of Codes"
-						brief="A Live Leaderboard build on top of Codeforces API"
+						brief="A Live leaderboard build on top of Codeforces API"
 						startDate="December 2023"
 						endDate="January 2024"
-						tags={["React", "Node.js", "MongoDB"]}
+						tags={["Next.js", "Typescript", "MongoDB", "Figma"]}
 						GHLink="https://github.com/Triellis/clash-of-codes"
 						demoLink="https://clash-of-codes-five.vercel.app/"
 					>
@@ -126,15 +126,96 @@ export default function Home() {
 								Background
 							</Text>
 							<Text opacity={0.7} fontWeight={"lighter"}>
-								This project enhances the Codeforces contest
+								This project enhances the
+								<span
+									style={{ color: "hsl(var(--attention))" }}
+								>
+									Codeforces contest
+								</span>{" "}
 								experience by fetching{" "}
-								<u>real-time standings</u> and organizing
-								participants into clans. Leveraging Websockets
-								and Redis Pub/Sub, it delivers streamlined stats
-								to the end user, addressing Codeforces&apos; UI
-								limitations.
+								<span
+									style={{ color: "hsl(var(--attention))" }}
+								>
+									real-time standings
+								</span>{" "}
+								and organizing participants into clans.
+								Leveraging Websockets and Redis Pub/Sub, it
+								delivers streamlined stats to the end user,
+								addressing Codeforces&apos; UI limitations.
 							</Text>
 						</div>
+					</ProjectCard>
+					<ProjectCard
+						title="AU Class Combinator"
+						brief="Schedule generator for students of Ahmedabad University"
+						startDate="December 2022"
+						endDate="March 2023"
+						tags={["React", "Node.js", "MongoDB"]}
+						GHLink="https://github.com/JeelRajodiya/AU-ClassCombinator"
+					>
+						<Flex direction={"column"} gap={2}>
+							<div>
+								Due to it&apos;s usefulness, this project gained
+								over{" "}
+								<span
+									style={{ color: "hsl(var(--attention))" }}
+								>
+									{" "}
+									250+
+								</span>{" "}
+								university wide users, with a notable engagement
+								rate as{" "}
+								<span
+									style={{ color: "hsl(var(--attention))" }}
+								>
+									{" "}
+									45%
+								</span>{" "}
+								of users logged in multiple times
+							</div>
+							<div>
+								<Text
+									color="hsl(var(--primary))"
+									fontWeight={"bold"}
+								>
+									Background
+								</Text>
+								Students at Ahmedabad University have to
+								manually go through the process of selecting
+								courses and creating a schedule for themselves.
+								This project aims to automate this process by
+								providing a simple UI to select courses and
+								generate a schedule.
+							</div>
+							<div>
+								<Text
+									color="hsl(var(--secondary))"
+									fontWeight={"bold"}
+								>
+									Workings
+								</Text>
+								This project has two parts:
+								<ol
+									style={{
+										opacity: 0.7,
+									}}
+								>
+									<li>
+										Data Scrapping: A python script parses
+										the course data from the university
+										website and converts it into a JSON file
+									</li>
+									<li>
+										Frontend: A React app reads the JSON and
+										displays the data in a user-friendly
+										manner, when the user selects the course
+										it creates all the possibles schedules
+										(that don&apos;t clash) and displays
+										them to the user.
+									</li>
+								</ol>
+							</div>
+						</Flex>
 					</ProjectCard>
 				</div>
 			</Flex>

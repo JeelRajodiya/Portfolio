@@ -25,7 +25,7 @@ export default function ProjectCard({
 	tags: string[];
 	brief: string;
 	GHLink: string;
-	demoLink: string;
+	demoLink?: string;
 	children: React.ReactNode;
 }) {
 	const [isHovered, setIsHovered] = useState(false);
@@ -46,9 +46,11 @@ export default function ProjectCard({
 					<a href={GHLink} target="_blank">
 						<GHIcon />
 					</a>
-					<a href={demoLink} target="_blank">
-						<LinkIcon />
-					</a>
+					{demoLink && (
+						<a href={demoLink} target="_blank">
+							<LinkIcon />
+						</a>
+					)}
 				</div>
 			</div>
 
