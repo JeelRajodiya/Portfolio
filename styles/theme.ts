@@ -27,6 +27,12 @@ const Button = {
 			fontWeight: "normal",
 			background: "hsl(var(--primary) )",
 			textTransform: "uppercase",
+			_hover: {
+				background: "hsl(var(--primary) / 0.7)",
+				_disabled: {
+					background: "hsl(var(--primary) / 0.7)",
+				},
+			},
 		},
 	},
 };
