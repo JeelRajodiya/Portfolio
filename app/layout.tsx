@@ -9,6 +9,8 @@ export const metadata: Metadata = {
 import { Providers } from "./providers";
 import NavBar from "@/components/NavBar";
 import Footer from "@/components/Footer/Footer";
+import Head from "next/head";
+import Script from "next/script";
 export default function RootLayout({
 	children,
 }: {
