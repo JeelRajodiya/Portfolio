@@ -1,0 +1,19 @@
+.highlight {
+	position: absolute;
+	top: 0;
+	z-index: -2;
+	transition: width 0.3s ease-in-out;
+	right: 0;
+}
+.text {
+	z-index: 10;
+	transition: color 0.3s ease-in-out;
+}
+.text:hover {
+	color: black;
+}
+.highlightText {
+	padding: 5px;
+
+	position: relative;
+}
