@@ -220,7 +220,7 @@ export default function Home() {
 					<ProjectCard
 						title="Brain Blitz"
 						brief="A Simple Quiz App built with Next.js"
-						startDate="May 2023"
+						startDate="June 2023"
 						endDate="August 2023"
 						tags={["Next.js", "MongoDB", "TailwindCSS"]}
 						GHLink="https://github.com/JeelRajodiya/brain-blitz"
