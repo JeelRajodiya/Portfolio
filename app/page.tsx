@@ -150,7 +150,7 @@ export default function Home() {
 						brief="Schedule generator for students of Ahmedabad University"
 						startDate="December 2022"
 						endDate="March 2023"
-						tags={["React", "Node.js", "MongoDB"]}
+						tags={["React", "Python"]}
 						GHLink="https://github.com/JeelRajodiya/AU-ClassCombinator"
 					>
 						<Flex direction={"column"} gap={2}>
@@ -216,6 +216,39 @@ export default function Home() {
 								</ol>
 							</div>
 						</Flex>
+					</ProjectCard>
+					<ProjectCard
+						title="Brain Blitz"
+						brief="A Simple Quiz App built with Next.js"
+						startDate="June 2023"
+						endDate="August 2023"
+						tags={["Next.js", "MongoDB", "TailwindCSS"]}
+						GHLink="https://github.com/JeelRajodiya/brain-blitz"
+						demoLink="https://brain-blitz-three.vercel.app"
+					>
+						<div>
+							<Text
+								color="hsl(var(--primary))"
+								fontWeight={"bold"}
+							>
+								Features
+							</Text>
+
+							<ul
+								style={{
+									opacity: 0.7,
+								}}
+							>
+								<li>
+									Create Quiz with multiple choice questions
+								</li>
+								<li>
+									Share Quiz with other users through code or
+									link
+								</li>
+								<li>Leaderboard to keep track of scores</li>
+							</ul>
+						</div>
 					</ProjectCard>
 				</div>
 			</Flex>
