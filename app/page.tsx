@@ -24,14 +24,13 @@ function postView(cookies: { [key: string]: string }) {
 }
 
 export default function Home() {
-	const [isFirst, setIsFirst] = useState(true);
 	const [cookies, setCookie] = useCookies();
 	const initialized = useRef(false);
 
 	useEffect(() => {
 		if (!initialized.current) {
 			initialized.current = true;
-			console.log("object");
+
 			postView(cookies);
 		}
 	}, [cookies]);
