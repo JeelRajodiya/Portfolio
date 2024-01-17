@@ -1,11 +1,40 @@
+"use client";
+
 import Image from "next/image";
 import styles from "./page.module.css";
-
+import { useCookies } from "react-cookie";
 import { Box, Flex, Heading } from "@chakra-ui/react";
 import TypeWriter from "@/components/TypeWriter";
 import ProjectCard from "@/components/ProjectCard/ProjectCard";
 import { Text } from "@chakra-ui/react";
+import {
+	useCallback,
+	useEffect,
+	useLayoutEffect,
+	useRef,
+	useState,
+} from "react";
+
+function postView(cookies: { [key: string]: string }) {
+	if (!cookies._ga) {
+		fetch("/api/views", {
+			method: "POST",
+		});
+	}
+}
+
 export default function Home() {
+	const [isFirst, setIsFirst] = useState(true);
+	const [cookies, setCookie] = useCookies();
+	const initialized = useRef(false);
+
+	useEffect(() => {
+		if (!initialized.current) {
+			initialized.current = true;
+			console.log("object");
+			postView(cookies);
+		}
+	}, [cookies]);
 	return (
 		<main className={styles.main}>
 			<Flex className={styles.intro} flexDirection={"column"} gap={"4px"}>
