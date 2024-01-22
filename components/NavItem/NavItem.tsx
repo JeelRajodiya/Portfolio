@@ -2,6 +2,7 @@ import { useEffect, useRef } from "react";
 import styles from "./NavItem.module.css";
 import classNames from "classnames";
 import { useRouter } from "next/navigation";
+import { event } from "nextjs-google-analytics";
 
 export default function NavItem({
 	name,
@@ -52,7 +53,12 @@ export default function NavItem({
 				styles.navItem,
 				isActive ? styles.active : ""
 			)}
-			onClick={() => setActive(name)}
+			onClick={() => {
+				setActive(name);
+				event("navigate", {
+					menu: name,
+				});
+			}}
 		>
 			{name}
 		</div>

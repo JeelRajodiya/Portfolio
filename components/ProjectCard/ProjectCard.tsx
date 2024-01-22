@@ -5,6 +5,7 @@ import styles from "./ProjectCard.module.css";
 import GHIcon from "@/styles/icons/GHIcon";
 import { useState } from "react";
 import { Box } from "@chakra-ui/react";
+import { event } from "nextjs-google-analytics";
 
 function Badge({ text }: { text: string }) {
 	return <div className={styles.badge}>{text}</div>;
@@ -43,11 +44,27 @@ export default function ProjectCard({
 					</div>
 				</div>
 				<div className={styles.projectCardLinks}>
-					<a href={GHLink} target="_blank">
+					<a
+						href={GHLink}
+						target="_blank"
+						onClick={() => {
+							event("github", {
+								name: title,
+							});
+						}}
+					>
 						<GHIcon />
 					</a>
 					{demoLink && (
-						<a href={demoLink} target="_blank">
+						<a
+							href={demoLink}
+							target="_blank"
+							onClick={() => {
+								event("demoLink", {
+									name: title,
+								});
+							}}
+						>
 							<LinkIcon />
 						</a>
 					)}

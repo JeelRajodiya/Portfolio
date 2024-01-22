@@ -8,6 +8,7 @@ import { Text } from "@chakra-ui/react";
 import { useEffect, useMemo, useState } from "react";
 import MyToast from "../MyToast/MyToast";
 import { listOfEmojis } from "@/util/constants";
+import { event } from "nextjs-google-analytics";
 
 async function sendFeedback(
 	feedback: string,
@@ -67,11 +68,23 @@ export default function Footer() {
 						href="https://www.linkedin.com/in/zeel-rajodiya"
 						target="_blank"
 					>
-						<Flex gap={4} alignItems={"center"}>
+						<Flex
+							gap={4}
+							alignItems={"center"}
+							onClick={() => {
+								event("linkedin", { name: "zeel-rajodiya" });
+							}}
+						>
 							<LinkedIn /> LinkedIn
 						</Flex>
 					</a>
-					<a href="https://github.com/JeelRajodiya" target="_blank">
+					<a
+						href="https://github.com/JeelRajodiya"
+						target="_blank"
+						onClick={() => {
+							event("github", { name: "JeelRajodiya" });
+						}}
+					>
 						<Flex gap={4} alignItems={"center"}>
 							<GHIcon /> GitHub
 						</Flex>
