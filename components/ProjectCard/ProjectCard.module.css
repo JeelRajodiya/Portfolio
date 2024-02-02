@@ -46,7 +46,7 @@
 	margin-top: auto;
 }
 .projectCardContent {
-	transition: height 0.3s ease-in-out;
+	transition: height 0.3s ease-out;
 	list-style-position: inside;
 	overflow-y: hidden;
 	width: 100%;
@@ -86,4 +86,28 @@
 	width: 100%;
 	/* background-color: red; */
 	/* transform: translateY(-28px); */
+}
+@media (max-width: 768px) {
+	.projectCard {
+		padding: 24px;
+	}
+	.projectCardTitle {
+		font-size: large;
+	}
+	.projectCardDates {
+		font-size: x-small;
+	}
+	.projectCardTags {
+		flex-wrap: nowrap;
+	}
+	.projectCardContent {
+		overflow-y: hidden;
+	}
+	.projectCardContentWrapper {
+		gap: 4px;
+	}
+	.viewMoreBtn {
+		padding: 8px 12px;
+		font-size: small;
+	}
 }

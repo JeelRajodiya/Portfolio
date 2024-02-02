@@ -116,7 +116,13 @@ export default function Home() {
 						brief="A Live leaderboard build on top of Codeforces API"
 						startDate="December 2023"
 						endDate="January 2024"
-						tags={["Next.js", "Typescript", "MongoDB", "Figma"]}
+						tags={[
+							"Next.js",
+							"Express.js",
+							"Typescript",
+							"MongoDB",
+							"Figma",
+						]}
 						GHLink="https://github.com/Triellis/clash-of-codes"
 						demoLink="https://clash-of-codes-five.vercel.app/"
 					>
@@ -156,12 +162,6 @@ export default function Home() {
 									contest ends, their scores are moved to past
 									scores and, their internal clan rankings
 									changes based on their performance.
-									<br />
-									Moreover, during the contest season. I
-									learned to gather useful insights through
-									Google Analytics, And made changes in the
-									project according to the user&apos;s usage
-									habits
 								</Text>
 							</div>
 							<div>
