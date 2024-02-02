@@ -72,8 +72,7 @@ export default function ProjectCard({
 			</div>
 
 			<div className={styles.projectCardBrief}>{brief}</div>
-
-			{children}
+			<div className={styles.projectCardContent}>{children}</div>
 
 			<div className={styles.projectCardTags}>
 				{tags.map((tag) => (
