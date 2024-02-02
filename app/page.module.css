@@ -1,6 +1,6 @@
 .main {
 	width: 100%;
-	max-width: 25cm;
+	max-width: 20cm;
 	display: flex;
 	flex-direction: column;
 	gap: 4em;
