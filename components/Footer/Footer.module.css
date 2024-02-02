@@ -7,17 +7,32 @@
 	align-items: center;
 	padding: 32px 16px;
 }
-.footerWrapper {
-	max-width: 25cm;
+.linkContentWrapper {
 	display: flex;
 	flex-direction: row;
-	justify-content: space-between;
-
 	width: 100%;
+	justify-content: space-between;
 }
-
+.footerWrapper {
+	display: flex;
+	flex-direction: column;
+	max-width: 20cm;
+	width: 100%;
+	gap: 16px;
+	justify-content: center;
+	align-items: center;
+}
+.divider {
+	width: 100%;
+	height: 2px;
+	background-color: #1e1e1e;
+}
+.viewsWrapper {
+	color: rgb(169, 169, 169);
+	font-size: large;
+}
 @media (max-width: 768px) {
-	.footerWrapper {
+	.linkContentWrapper {
 		flex-direction: column;
 		align-items: center;
 		gap: 32px;

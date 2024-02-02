@@ -15,12 +15,17 @@ import {
 	useState,
 } from "react";
 
-function postView(cookies: { [key: string]: string }) {
+function postVisitor(cookies: { [key: string]: string }) {
 	if (!cookies._ga) {
-		fetch("/api/views", {
+		fetch("/api/visitor", {
 			method: "POST",
 		});
 	}
+}
+function postView() {
+	fetch("/api/view", {
+		method: "POST",
+	});
 }
 
 export default function Home() {
@@ -31,7 +36,8 @@ export default function Home() {
 		if (!initialized.current) {
 			initialized.current = true;
 
-			postView(cookies);
+			postVisitor(cookies);
+			postView();
 		}
 	}, [cookies]);
 	return (

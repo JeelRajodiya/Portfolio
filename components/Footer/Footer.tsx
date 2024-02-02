@@ -9,6 +9,7 @@ import { useEffect, useMemo, useState } from "react";
 import MyToast from "../MyToast/MyToast";
 import { listOfEmojis } from "@/util/constants";
 import { event } from "nextjs-google-analytics";
+import { useViews } from "@/util/functions";
 
 async function sendFeedback(
 	feedback: string,
@@ -44,6 +45,10 @@ async function sendFeedback(
 		);
 	}
 }
+async function getViews() {
+	const views = await fetch("/api/view");
+	return views;
+}
 
 export default function Footer() {
 	const [feedback, setFeedback] = useState("");
@@ -60,66 +65,82 @@ export default function Footer() {
 		return () => clearInterval(interval);
 	}, [emojiIndex]);
 
+	const { viewsData, error, isLoading } = useViews();
+	let viewComponent;
+	if (isLoading) {
+		viewComponent = "Views loading ...";
+	} else if (error) {
+		viewComponent = "Failed to fetch views : (";
+	} else {
+		viewComponent = `${viewsData.views} Views`;
+	}
+
 	return (
 		<div className={styles.footer} id="Contact">
 			<Box className={styles.footerWrapper}>
-				<Flex direction={"column"} gap={8}>
-					<a
-						href="https://www.linkedin.com/in/zeel-rajodiya"
-						target="_blank"
-					>
-						<Flex
-							gap={4}
-							alignItems={"center"}
+				<Box className={styles.linkContentWrapper}>
+					<Flex direction={"column"} gap={8}>
+						<a
+							href="https://www.linkedin.com/in/zeel-rajodiya"
+							target="_blank"
+						>
+							<Flex
+								gap={4}
+								alignItems={"center"}
+								onClick={() => {
+									event("linkedin", {
+										name: "zeel-rajodiya",
+									});
+								}}
+							>
+								<LinkedIn /> LinkedIn
+							</Flex>
+						</a>
+						<a
+							href="https://github.com/JeelRajodiya"
+							target="_blank"
 							onClick={() => {
-								event("linkedin", { name: "zeel-rajodiya" });
+								event("github", { name: "JeelRajodiya" });
 							}}
 						>
-							<LinkedIn /> LinkedIn
-						</Flex>
-					</a>
-					<a
-						href="https://github.com/JeelRajodiya"
-						target="_blank"
-						onClick={() => {
-							event("github", { name: "JeelRajodiya" });
-						}}
-					>
-						<Flex gap={4} alignItems={"center"}>
-							<GHIcon /> GitHub
-						</Flex>
-					</a>
-				</Flex>
-				<Flex direction={"column"} gap={4}>
-					<Text fontSize={"x-large"}>
-						Say Something to Me {emoji}
-					</Text>
-					<Flex gap={2}>
-						<Input
-							variant={"default"}
-							placeholder="Hey"
-							value={feedback}
-							size={"md"}
-							onChange={(e) => setFeedback(e.target.value)}
-						/>
-						<Button
-							size={"md"}
-							variant={"default"}
-							isLoading={isSending}
-							onClick={() =>
-								sendFeedback(
-									feedback,
-									setFeedback,
-									setIsSending,
-									toast
-								)
-							}
-							isDisabled={feedback === ""}
-						>
-							Send
-						</Button>
+							<Flex gap={4} alignItems={"center"}>
+								<GHIcon /> GitHub
+							</Flex>
+						</a>
 					</Flex>
-				</Flex>
+					<Flex direction={"column"} gap={4}>
+						<Text fontSize={"x-large"}>
+							Say Something to Me {emoji}
+						</Text>
+						<Flex gap={2}>
+							<Input
+								variant={"default"}
+								placeholder="Hey"
+								value={feedback}
+								size={"md"}
+								onChange={(e) => setFeedback(e.target.value)}
+							/>
+							<Button
+								size={"md"}
+								variant={"default"}
+								isLoading={isSending}
+								onClick={() =>
+									sendFeedback(
+										feedback,
+										setFeedback,
+										setIsSending,
+										toast
+									)
+								}
+								isDisabled={feedback === ""}
+							>
+								Send
+							</Button>
+						</Flex>
+					</Flex>
+				</Box>
+				<div className={styles.divider} />
+				<div className={styles.viewsWrapper}>{viewComponent} </div>
 			</Box>
 		</div>
 	);
