@@ -110,14 +110,14 @@ export default function ProjectCard({
 								w={6}
 								transform="rotate(180deg)"
 								transitionProperty={"transform"}
-								transitionDuration={"0.4s"}
+								transitionDuration={"0.2s"}
 							/>
 						) : (
 							<ChevronDownIcon
 								h={6}
 								w={6}
 								transitionProperty={"transform"}
-								transitionDuration={"0.4s"}
+								transitionDuration={"0.2s"}
 							/>
 						)}
 					</div>
