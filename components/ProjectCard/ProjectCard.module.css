@@ -98,16 +98,21 @@
 		font-size: x-small;
 	}
 	.projectCardTags {
-		flex-wrap: nowrap;
+		gap: 4px;
+		font-size: xx-small;
 	}
-	.projectCardContent {
-		overflow-y: hidden;
-	}
+
 	.projectCardContentWrapper {
 		gap: 4px;
 	}
 	.viewMoreBtn {
 		padding: 8px 12px;
+		font-size: small;
+	}
+	.badge {
+		font-size: xx-small;
+	}
+	.projectCardContent {
 		font-size: small;
 	}
 }
