@@ -112,6 +112,75 @@ export default function Home() {
 				<Heading id="Projects">Projects</Heading>
 				<div className={styles.projectCardsGrid}>
 					<ProjectCard
+						title="Clash Of Codes"
+						brief="A Live leaderboard build on top of Codeforces API"
+						startDate="December 2023"
+						endDate="January 2024"
+						tags={["Next.js", "Typescript", "MongoDB", "Figma"]}
+						GHLink="https://github.com/Triellis/clash-of-codes"
+						demoLink="https://clash-of-codes-five.vercel.app/"
+					>
+						<Flex gap={2} direction="column">
+							<div>
+								Receiving over{" "}
+								<span
+									style={{ color: "hsl(var(--attention))" }}
+								>
+									1.2K views
+								</span>{" "}
+								and{" "}
+								<span
+									style={{ color: "hsl(var(--attention))" }}
+								>
+									375+
+								</span>{" "}
+								users, Clash of Codes has proven to be a highly
+								impactful and useful project
+							</div>
+							<div>
+								<Text
+									color="hsl(var(--secondary))"
+									fontWeight={"bold"}
+								>
+									Background
+								</Text>
+								<Text opacity={0.7} fontWeight={"lighter"}>
+									Every year, programming club at Ahmedabad
+									University organizes a competitive
+									programming competition, The entire
+									competition takes place on CodeForces. To
+									make the competition more engaging, The
+									projects displays the live scores of each
+									participant (Using the CodeForces API)
+									whilst the contest is going on. After each
+									contest ends, their scores are moved to past
+									scores and, their internal clan rankings
+									changes based on their performance.
+									<br />
+									Moreover, during the contest season. I
+									learned to gather useful insights through
+									Google Analytics, And made changes in the
+									project according to the user&apos;s usage
+									habits
+								</Text>
+							</div>
+							<div>
+								<Text
+									color="hsl(var(--primary))"
+									fontWeight={"bold"}
+								>
+									Additional
+								</Text>
+								<Text opacity={0.7} fontWeight={"lighter"}>
+									During the contest season. I learned to
+									gather useful insights through Google
+									Analytics, And made changes in the project
+									according to the user&apos;s usage habits.
+								</Text>
+							</div>
+						</Flex>
+					</ProjectCard>
+					<ProjectCard
 						title="Enchanted Oasis"
 						brief="Harry potter themed school management system"
 						startDate="July 2023"
@@ -143,42 +212,7 @@ export default function Home() {
 							</ul>
 						</div>
 					</ProjectCard>
-					<ProjectCard
-						title="Clash Of Codes"
-						brief="A Live leaderboard build on top of Codeforces API"
-						startDate="December 2023"
-						endDate="January 2024"
-						tags={["Next.js", "Typescript", "MongoDB", "Figma"]}
-						GHLink="https://github.com/Triellis/clash-of-codes"
-						demoLink="https://clash-of-codes-five.vercel.app/"
-					>
-						<div>
-							<Text
-								color="hsl(var(--secondary))"
-								fontWeight={"bold"}
-							>
-								Background
-							</Text>
-							<Text opacity={0.7} fontWeight={"lighter"}>
-								This project enhances the
-								<span
-									style={{ color: "hsl(var(--attention))" }}
-								>
-									Codeforces contest
-								</span>{" "}
-								experience by fetching{" "}
-								<span
-									style={{ color: "hsl(var(--attention))" }}
-								>
-									real-time standings
-								</span>{" "}
-								and organizing participants into clans.
-								Leveraging Websockets and Redis Pub/Sub, it
-								delivers streamlined stats to the end user,
-								addressing Codeforces&apos; UI limitations.
-							</Text>
-						</div>
-					</ProjectCard>
+
 					<ProjectCard
 						title="AU Class Combinator"
 						brief="Schedule generator for students of Ahmedabad University"

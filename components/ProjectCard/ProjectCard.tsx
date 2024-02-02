@@ -3,10 +3,11 @@
 import LinkIcon from "@/styles/icons/LinkIcon";
 import styles from "./ProjectCard.module.css";
 import GHIcon from "@/styles/icons/GHIcon";
-import { useState } from "react";
-import { Box } from "@chakra-ui/react";
+import { use, useEffect, useRef, useState } from "react";
+import { Box, Button } from "@chakra-ui/react";
 import { event } from "nextjs-google-analytics";
-
+import classNames from "classnames";
+import { ChevronDownIcon } from "@chakra-ui/icons";
 function Badge({ text }: { text: string }) {
 	return <div className={styles.badge}>{text}</div>;
 }
@@ -29,13 +30,24 @@ export default function ProjectCard({
 	demoLink?: string;
 	children: React.ReactNode;
 }) {
-	const [isHovered, setIsHovered] = useState(false);
+	const [isOpen, setIsOpen] = useState(false);
+	const [shouldNeedMore, setShouldNeedMore] = useState(false);
+	const childRef = useRef<HTMLDivElement>(null);
+
+	useEffect(() => {
+		if (childRef.current) {
+			console.log(Number(childRef.current.scrollHeight) > 150);
+			if (Number(childRef.current.scrollHeight) > 150) {
+				setShouldNeedMore(true);
+
+				childRef.current.style.height = isOpen
+					? `${childRef.current.scrollHeight}px`
+					: "100px";
+			}
+		}
+	}, [isOpen]);
 	return (
-		<div
-			className={styles.projectCard}
-			onMouseEnter={() => setIsHovered(true)}
-			onMouseLeave={() => setIsHovered(false)}
-		>
+		<div className={styles.projectCard}>
 			<div className={styles.projectCardHeader}>
 				<div>
 					<div className={styles.projectCardTitle}>{title}</div>
@@ -72,7 +84,45 @@ export default function ProjectCard({
 			</div>
 
 			<div className={styles.projectCardBrief}>{brief}</div>
-			<div className={styles.projectCardContent}>{children}</div>
+			<div className={classNames(styles.projectCardContentWrapper)}>
+				<div
+					className={classNames(styles.projectCardContent)}
+					ref={childRef}
+				>
+					{children}
+					{shouldNeedMore && (
+						<div
+							className={!isOpen ? styles.blurContentElem : ""}
+						/>
+					)}
+				</div>
+				{shouldNeedMore && (
+					<div
+						className={styles.viewMoreBtn}
+						onClick={() => {
+							setIsOpen(!isOpen);
+						}}
+					>
+						{isOpen ? "Show Less" : "Show More"}
+						{isOpen ? (
+							<ChevronDownIcon
+								h={6}
+								w={6}
+								transform="rotate(180deg)"
+								transitionProperty={"transform"}
+								transitionDuration={"0.4s"}
+							/>
+						) : (
+							<ChevronDownIcon
+								h={6}
+								w={6}
+								transitionProperty={"transform"}
+								transitionDuration={"0.4s"}
+							/>
+						)}
+					</div>
+				)}
+			</div>
 
 			<div className={styles.projectCardTags}>
 				{tags.map((tag) => (

@@ -45,3 +45,41 @@
 	flex-wrap: wrap;
 	margin-top: auto;
 }
+.projectCardContent {
+	transition: height 0.5s;
+	list-style-position: inside;
+	overflow-y: hidden;
+	width: 100%;
+	position: relative;
+}
+
+.projectCardContentWrapper {
+	display: flex;
+	flex-direction: column;
+	gap: 8px;
+	justify-content: center;
+	align-items: center;
+	padding-block: 1em;
+}
+.viewMoreBtn {
+	background-color: hsl(var(--background2));
+	border: 2px dashed hsl(var(--text) / 20%);
+	border-radius: 16px;
+	padding: 8px 16px;
+	cursor: pointer;
+	width: max-content;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 1em;
+}
+.blurContentElem {
+	position: absolute;
+	bottom: 0;
+	background-color: hsl(var(--background2) / 80%);
+	backdrop-filter: blur(1px);
+	height: 2rem;
+	width: 100%;
+	/* background-color: red; */
+	/* transform: translateY(-28px); */
+}
