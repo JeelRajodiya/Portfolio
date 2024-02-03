@@ -84,8 +84,6 @@
 	backdrop-filter: blur(1px);
 	height: 2ch;
 	width: 100%;
-	/* background-color: red; */
-	/* transform: translateY(-28px); */
 }
 @media (max-width: 768px) {
 	.projectCard {
