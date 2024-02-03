@@ -1,19 +1,12 @@
 "use client";
 
-import Image from "next/image";
 import styles from "./page.module.css";
 import { useCookies } from "react-cookie";
 import { Box, Flex, Heading } from "@chakra-ui/react";
 import TypeWriter from "@/components/TypeWriter";
 import ProjectCard from "@/components/ProjectCard/ProjectCard";
 import { Text } from "@chakra-ui/react";
-import {
-	useCallback,
-	useEffect,
-	useLayoutEffect,
-	useRef,
-	useState,
-} from "react";
+import { useEffect, useRef } from "react";
 
 function postVisitor(cookies: { [key: string]: string }) {
 	if (!cookies._ga) {
@@ -22,10 +15,17 @@ function postVisitor(cookies: { [key: string]: string }) {
 		});
 	}
 }
-function postView() {
-	fetch("/api/view", {
-		method: "POST",
-	});
+function postView(
+	cookies: { [key: string]: string },
+	setCookie: (name: string, value: string, options?: any) => void
+) {
+	if (!cookies.session) {
+		fetch("/api/view", {
+			method: "POST",
+		});
+
+		setCookie("session", "true", { maxAge: 1800 });
+	}
 }
 
 export default function Home() {
@@ -37,7 +37,7 @@ export default function Home() {
 			initialized.current = true;
 
 			postVisitor(cookies);
-			postView();
+			postView(cookies, setCookie);
 		}
 	}, [cookies]);
 	return (
