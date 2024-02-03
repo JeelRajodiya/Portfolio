@@ -36,7 +36,6 @@ export default function ProjectCard({
 
 	useEffect(() => {
 		if (childRef.current) {
-			console.log(Number(childRef.current.scrollHeight) > 150);
 			if (Number(childRef.current.scrollHeight) > 150) {
 				setShouldNeedMore(true);
 

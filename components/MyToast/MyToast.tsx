@@ -13,7 +13,7 @@ function CustomToast({
 	const [emoji, setEmoji] = useState("😁");
 	let listOfEmojis = useMemo(() => {
 		if (status == "success") {
-			return ["😁", "😉"];
+			return ["😁", "😀"];
 		} else {
 			return ["😭", "😵"];
 		}
@@ -58,7 +58,7 @@ export default function myToast(
 					status={status}
 				/>
 			),
-			duration: 3000,
+			duration: 2000,
 			isClosable: true,
 		});
 	} else {

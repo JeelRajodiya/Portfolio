@@ -1,47 +1,40 @@
 "use client";
 import { listOfEmojis } from "@/util/constants";
-import { Button, Flex, Input, Text, useToast } from "@chakra-ui/react";
+import {
+	Button,
+	Flex,
+	FormControl,
+	Input,
+	Text,
+	useToast,
+} from "@chakra-ui/react";
 import { useEffect, useState } from "react";
-import MyToast from "../MyToast";
-async function sendFeedback(
-	feedback: string,
-	setFeedback: any,
-	setIsSending: any,
-	toast: any
-) {
-	setIsSending(true);
-	const res = await fetch("/api/feedback", {
-		body: JSON.stringify({ message: feedback }),
-		headers: {
-			"Content-Type": "application/json",
-		},
-		method: "POST",
-	});
+import postMessage from "@/actions/postMessage";
 
-	setIsSending(false);
+import { useFormState, useFormStatus } from "react-dom";
+import myToast from "../MyToast/MyToast";
+function SubmitBtn({ message }: { message: string }) {
+	const { pending } = useFormStatus();
 
-	if (res.ok) {
-		MyToast(
-			"Feedback sent",
-			"Thank you for your feedback. I will get back to you soon.",
-			"success",
-			toast
-		);
-		setFeedback("");
-	} else {
-		MyToast(
-			"Feedback not sent",
-			"Something went wrong. Please try again later.",
-			"error",
-			toast
-		);
-	}
+	return (
+		<Button
+			size={"md"}
+			variant={"default"}
+			type="submit"
+			isDisabled={message == ""}
+			isLoading={pending}
+		>
+			Send
+		</Button>
+	);
 }
 export default function MsgBox() {
-	const [feedback, setFeedback] = useState("");
-	const [isSending, setIsSending] = useState(false);
-	const toast = useToast();
+	const [message, setMessage] = useState("");
+
 	const [emoji, setEmoji] = useState("😀");
+	const [status, formAction] = useFormState(postMessage, {
+		Response: "",
+	});
 
 	const [emojiIndex, setEmojiIndex] = useState(0);
 	useEffect(() => {
@@ -51,29 +44,36 @@ export default function MsgBox() {
 		}, 200);
 		return () => clearInterval(interval);
 	}, [emojiIndex]);
+	const toast = useToast();
 	return (
-		<Flex direction={"column"} gap={4}>
+		<Flex
+			direction={"column"}
+			gap={4}
+			onSubmit={(e) => {
+				myToast(
+					"Sent!",
+					"Your message has been sent!",
+					"success",
+					toast
+				);
+
+				setMessage("");
+			}}
+		>
 			<Text fontSize={"x-large"}>Say Something to Me {emoji}</Text>
-			<Flex gap={2}>
-				<Input
-					variant={"default"}
-					placeholder="Hey"
-					value={feedback}
-					size={"md"}
-					onChange={(e) => setFeedback(e.target.value)}
-				/>
-				<Button
-					size={"md"}
-					variant={"default"}
-					isLoading={isSending}
-					onClick={() =>
-						sendFeedback(feedback, setFeedback, setIsSending, toast)
-					}
-					isDisabled={feedback === ""}
-				>
-					Send
-				</Button>
-			</Flex>
+			<form action={formAction}>
+				<Flex gap={2}>
+					<Input
+						variant={"default"}
+						placeholder="Hey"
+						value={message}
+						name="message"
+						size={"md"}
+						onChange={(e) => setMessage(e.target.value)}
+					/>
+					<SubmitBtn message={message} />
+				</Flex>
+			</form>
 		</Flex>
 	);
 }

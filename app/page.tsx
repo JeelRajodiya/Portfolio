@@ -39,7 +39,7 @@ export default function Home() {
 			postVisitor(cookies);
 			postView(cookies, setCookie);
 		}
-	}, [cookies]);
+	}, [cookies, setCookie]);
 	return (
 		<main className={styles.main}>
 			<Flex className={styles.intro} flexDirection={"column"} gap={"4px"}>
