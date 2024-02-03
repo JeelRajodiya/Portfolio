@@ -1,4 +1,5 @@
 import { clientPromise } from "@/util/DB";
+import { revalidatePath, revalidateTag } from "next/cache";
 import { NextRequest, NextResponse } from "next/server";
 
 export async function POST(request: NextRequest) {
@@ -42,6 +43,7 @@ export async function GET() {
 		}
 	);
 	const views = data?.views || 0;
+
 	return new NextResponse(JSON.stringify({ views }), {
 		status: 200,
 	});

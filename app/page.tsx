@@ -19,12 +19,12 @@ function postView(
 	cookies: { [key: string]: string },
 	setCookie: (name: string, value: string, options?: any) => void
 ) {
-	if (!cookies.session) {
+	if (!cookies.session_started) {
 		fetch("/api/view", {
 			method: "POST",
 		});
 
-		setCookie("session", "true", { maxAge: 1800 });
+		setCookie("session_started", "true", { maxAge: 1800 });
 	}
 }
 
