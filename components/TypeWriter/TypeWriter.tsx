@@ -50,7 +50,7 @@ export default function TypeWriter({
 			if (letterIndex === words[wordIndex].length - 1) {
 				setSpeed(2000);
 			} else {
-				setSpeed(Math.random() * (400 - 50) + 50);
+				setSpeed(Math.random() * (350 - 50) + 50);
 			}
 		}
 	}, [letterIndex, isDeleting, wordIndex, words]);

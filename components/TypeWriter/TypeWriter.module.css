@@ -2,9 +2,9 @@
 	/* background-color: hsl(var(--text)); */
 
 	animation: blink 1s infinite;
-	margin-left: 2px;
-	height: 1em;
-	width: 0.5em;
+	margin-inline: 2px;
+	height: 1.2em;
+	width: 0.5ch;
 }
 
 @keyframes blink {
