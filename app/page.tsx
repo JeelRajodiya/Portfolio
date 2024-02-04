@@ -80,7 +80,7 @@ export default function Home() {
 								opacity: 0.6,
 							}}
 						>
-							&nbsp;,Gujarat,India.
+							,&nbsp;Gujarat, India.
 						</span>
 					</Box>
 					<Box fontSize={"large"}>
@@ -132,13 +132,13 @@ export default function Home() {
 								<span
 									style={{ color: "hsl(var(--attention))" }}
 								>
-									1.2K views
+									5K views
 								</span>{" "}
 								and{" "}
 								<span
 									style={{ color: "hsl(var(--attention))" }}
 								>
-									375+
+									400+
 								</span>{" "}
 								users, Clash of Codes has proven to be a highly
 								impactful and useful project

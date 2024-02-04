@@ -100,6 +100,8 @@ export default function ProjectCard({
 						className={styles.viewMoreBtn}
 						onClick={() => {
 							setIsOpen(!isOpen);
+
+							event("button", { ViewMore: String(title) });
 						}}
 					>
 						{isOpen ? "Show Less" : "Show More"}
