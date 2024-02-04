@@ -1,45 +1,13 @@
-"use client";
-
 import styles from "./page.module.css";
-import { useCookies } from "react-cookie";
+
 import { Box, Flex, Heading } from "@chakra-ui/react";
 import TypeWriter from "@/components/TypeWriter";
 import ProjectCard from "@/components/ProjectCard/ProjectCard";
 import { Text } from "@chakra-ui/react";
-import { useEffect, useRef } from "react";
-
-function postVisitor(cookies: { [key: string]: string }) {
-	if (!cookies._ga) {
-		fetch("/api/visitor", {
-			method: "POST",
-		});
-	}
-}
-function postView(
-	cookies: { [key: string]: string },
-	setCookie: (name: string, value: string, options?: any) => void
-) {
-	if (!cookies.session_started) {
-		fetch("/api/view", {
-			method: "POST",
-		});
-
-		setCookie("session_started", "true", { maxAge: 1800 });
-	}
-}
-
-export default function Home() {
-	const [cookies, setCookie] = useCookies();
-	const initialized = useRef(false);
-
-	useEffect(() => {
-		if (!initialized.current) {
-			initialized.current = true;
-
-			postVisitor(cookies);
-			postView(cookies, setCookie);
-		}
-	}, [cookies, setCookie]);
+import { getViewsAndUsers } from "@/util/GAnalytics";
+export const revalidate = 86400;
+export default async function Home() {
+	const cocViewsAndUsers = await getViewsAndUsers("422358643");
 	return (
 		<main className={styles.main}>
 			<Flex className={styles.intro} flexDirection={"column"} gap={"4px"}>
@@ -132,13 +100,20 @@ export default function Home() {
 								<span
 									style={{ color: "hsl(var(--attention))" }}
 								>
-									5K views
+									{new Intl.NumberFormat("en-GB", {
+										notation: "compact",
+										compactDisplay: "short",
+									}).format(cocViewsAndUsers.views)}{" "}
+									views
 								</span>{" "}
 								and{" "}
 								<span
 									style={{ color: "hsl(var(--attention))" }}
 								>
-									400+
+									{new Intl.NumberFormat("en-GB", {
+										notation: "compact",
+										compactDisplay: "short",
+									}).format(cocViewsAndUsers.users)}{" "}
 								</span>{" "}
 								users, Clash of Codes has proven to be a highly
 								impactful and useful project
