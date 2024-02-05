@@ -5,7 +5,7 @@ import TypeWriter from "@/components/TypeWriter";
 import ProjectCard from "@/components/ProjectCard/ProjectCard";
 import { Text } from "@chakra-ui/react";
 import { getViewsAndUsers } from "@/util/GAnalytics";
-export const revalidate = 86400;
+export const revalidate = 43200;
 export default async function Home() {
 	const cocViewsAndUsers = await getViewsAndUsers("422358643");
 	return (

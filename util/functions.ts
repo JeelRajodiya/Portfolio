@@ -19,6 +19,6 @@ export async function getViews() {
 		}
 	);
 	const views = data?.views || 0;
-	revalidatePath("/");
+
 	return views;
 }
