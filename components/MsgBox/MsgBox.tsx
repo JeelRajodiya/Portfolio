@@ -64,7 +64,7 @@ export default function MsgBox() {
 				setMessage("");
 			}}
 		>
-			<Text fontSize={"x-large"}>Contact Me </Text>
+			<Text fontSize={"x-large"}>Message Me </Text>
 			<form action={formAction}>
 				<Flex gap={2}>
 					<Input
