@@ -31,19 +31,23 @@ function SubmitBtn({ message }: { message: string }) {
 export default function MsgBox() {
 	const [message, setMessage] = useState("");
 
-	const [emoji, setEmoji] = useState("😀");
+	const [dots, setDots] = useState(".");
+	const totalDots = 3;
 	const [status, formAction] = useFormState(postMessage, {
 		Response: "",
 	});
 
-	const [emojiIndex, setEmojiIndex] = useState(0);
 	useEffect(() => {
 		const interval = setInterval(() => {
-			setEmoji(listOfEmojis[emojiIndex]);
-			setEmojiIndex((emojiIndex + 1) % listOfEmojis.length);
+			setDots((dots) => {
+				if (dots.length >= totalDots) {
+					return "";
+				}
+				return dots + ".";
+			});
 		}, 200);
 		return () => clearInterval(interval);
-	}, [emojiIndex]);
+	}, []);
 	const toast = useToast();
 	return (
 		<Flex
@@ -60,12 +64,12 @@ export default function MsgBox() {
 				setMessage("");
 			}}
 		>
-			<Text fontSize={"x-large"}>Say Something to Me {emoji}</Text>
+			<Text fontSize={"x-large"}>Contact Me </Text>
 			<form action={formAction}>
 				<Flex gap={2}>
 					<Input
 						variant={"default"}
-						placeholder="Hey"
+						placeholder={`Hello ${dots}`}
 						value={message}
 						name="message"
 						size={"md"}
